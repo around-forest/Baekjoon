@@ -1,2 +1,2 @@
-# Baeckjoon
+# Baekjoon
 www.acmicpc.net
