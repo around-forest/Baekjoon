@@ -18,7 +18,6 @@ int main() {
     cin >> n;
     
     cin >> tmp1;
-    distance.push_back(tmp1);
     
     // get distances btw trees
     for(int i = 0; i < n-1; i++) {
