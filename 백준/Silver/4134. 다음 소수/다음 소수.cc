@@ -7,7 +7,7 @@ bool isPrime(long long test) {
     if(test % 2 == 0 || test % 3 == 0) return false;
     
     for(long long i = 5; i*i <= test; i++) {
-        if(test % i == 0 || test % (i+2) == 0) return false;
+        if(test % i == 0) return false;
     }
     return true;
 }
