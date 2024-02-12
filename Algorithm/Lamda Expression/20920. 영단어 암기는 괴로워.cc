@@ -1,5 +1,5 @@
-// 시간초과로 통과되지는 않지만, 람다 표현식을 사용하여 구현한 코드
 #include <iostream>
+#include <map>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -7,9 +7,10 @@
 using namespace std;
 
 int main() {
+    cin.tie(nullptr); ios::sync_with_stdio(false);
     int n, m;
     string tmp;
-    vector<pair<string, int>> note;
+    map<string, int> note;
     
     cin >> n >> m;
     
@@ -17,29 +18,27 @@ int main() {
         cin >> tmp;
         
         if(tmp.size() >= m) {
-            auto it = find_if(note.begin(), note.end(), [&tmp](const pair<string, int>& element) {
-                return element.first == tmp;
-            });
-            
-            if(it == note.end()) {
-                note.push_back(make_pair(tmp, 1));
+            if(note.find(tmp) == note.end()) {
+                note.insert(make_pair(tmp, 1));
             } else {
-                it->second++;
+                note[tmp]++;
             }
         }
     }
     
-    sort(note.begin(), note.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+    vector<pair<string, int>> result(note.begin(), note.end());
+    
+    sort(result.begin(), result.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
         if(a.second != b.second) {
             return a.second > b.second;
         }
         
-        if(a.first != b.first) {
+        else if(a.first.size() != b.first.size()) {
             return a.first.size() > b.first.size();
         }
         
         return a.first < b.first;
     });
     
-    for(int i = 0; i < note.size(); i++) cout << note[i].first << ' ';
+    for(int i = 0; i < note.size(); i++) cout << result[i].first << '\n';
 }
