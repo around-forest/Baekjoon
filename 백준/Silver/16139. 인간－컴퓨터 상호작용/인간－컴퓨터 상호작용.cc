@@ -3,7 +3,8 @@
 using namespace std;
 
 char word;
-int q, l, r, count;
+int q, l, r;
+int sum[26][2001] = {0,};
 string S;
 
 int main() {
@@ -15,12 +16,16 @@ int main() {
     
     while(q--) {
         cin >> word >> l >> r;
-        count = 0;
         
-        for(int i = l; i <= r; i++) {
-            if(S[i] == word) count++;
+        for(int i = 0; i <= r; i++) {
+            if(sum[word-97][i]) {
+                continue;
+            } else {
+                if(S[i] == word) sum[word-97][i] = sum[word-97][i-1] + 1;
+                else sum[word-97][i] = sum[word-97][i-1];
+            }
         }
         
-        cout << count << '\n';
+        cout << sum[word-97][r] - sum[word-97][l-1] << '\n';
     }
 }
