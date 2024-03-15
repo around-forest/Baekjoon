@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-int n, minCost;
-int dist[100001], cost[100001];
+long long n, minCost;
+long long dist[100001], cost[100001];
 long long totalCost = 0;
 
 int main() {
@@ -20,7 +20,7 @@ int main() {
     totalCost = cost[0] * dist[0];
     
     for(int i = 1; i < n-1; i++) {
-        if(cost[i] < cost[i-1]) {
+        if(cost[i] < minCost) {
             minCost = cost[i];
             totalCost += minCost * dist[i];
         } else {
