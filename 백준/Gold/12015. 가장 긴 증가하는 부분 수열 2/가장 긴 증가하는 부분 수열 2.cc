@@ -9,7 +9,7 @@ int binarySearch(int k) {
     int low = 0, high = result.size() - 1, mid;
     
     while(low < high) {
-        mid = low + (high - low) / 2;
+        mid = (high + low) / 2;
         
         if(result[mid] >= k) high = mid;
         else low = mid + 1;
