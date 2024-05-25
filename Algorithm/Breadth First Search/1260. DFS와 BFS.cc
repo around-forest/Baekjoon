@@ -41,7 +41,7 @@ void bfs(int v) {
 int main() {
     cin >> N >> M >> V;
     
-    for(int i = 0; i < M; i++) {
+    for(int i = 1; i <= M; i++) {
         int node1, node2;
         cin >> node1 >> node2;
         
