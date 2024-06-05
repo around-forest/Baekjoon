@@ -20,7 +20,7 @@ void unionFind(int u, int v) {
         return;
     }
     
-    if(parents[u] > parents[v]) swap(u, v);
+    if(height[u] > height[v]) swap(u, v);
     parents[u] = v;
     if(height[u] == height[v]) height[v]++;
 }
