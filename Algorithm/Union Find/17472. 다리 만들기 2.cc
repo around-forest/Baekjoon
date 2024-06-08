@@ -15,6 +15,7 @@ int parents[11];
 int height[11];
 vector<pair<int, pair<int, int>>> graph;
 
+// 나라별 번호 선정
 void bfs(int y, int x, int num) {
     q.push({y, x});
     map[y][x] = num;
@@ -37,6 +38,7 @@ void bfs(int y, int x, int num) {
     }
 }
 
+// 건설 가능한 모든 다리의 경우
 void bridge(int y, int x, int idx) {
     int dist = 0;
     int ny = y;
@@ -57,6 +59,7 @@ void bridge(int y, int x, int idx) {
     }
 }
 
+// 내림차순으로 정렬된 다리 길이를 기준으로 트리 생성
 int find(int k) {
     if(k == parents[k]) return k;
     return parents[k] = find(parents[k]);
