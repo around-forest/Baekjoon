@@ -13,12 +13,14 @@ for (i, v) in a.enumerated() {
     }
 }
 
+queue = queue.reversed()
+
 if m < queue.count {
-    for i in stride(from: queue.count - 1, to: queue.count - m - 1, by: -1) {
+    for i in 0..<m {
         answer += "\(queue[i]) "
     }
 } else {
-    for i in queue.reversed() {
+    for i in queue {
         answer += "\(i) "
     }
     
